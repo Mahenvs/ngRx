@@ -1,0 +1,11 @@
+<span>Name is {{ curName }}</span>
+<p>Rename componnent works</p>
+<form>
+  <mat-form-field class="example-full-width">
+    <mat-label>Enter a name to update</mat-label>
+    <input matInput placeholder="2" type="text" #name />
+  </mat-form-field>
+  <button mat-raised-button color="warn" (click)="onRename(name.value)">
+    Rename
+  </button>
+</form>

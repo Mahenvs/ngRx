@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { getCounter } from '../shared/store/counter.selector';
 @Component({
   selector: 'app-display-counter',
   imports: [CommonModule, MatSlideToggleModule, FormsModule, MatButtonModule, MatInputModule],
@@ -22,18 +23,16 @@ export class DisplayCounterComponent implements OnInit {
   counterVal!: number;
   counter = 0
   constructor(private store: Store<{ counter: { counter: number } }>) {
-    this.store.select('counter').subscribe((data) => {
-      this.counterVal = data.counter
-    })
+
   }
 
   ngOnInit(): void {
-    this.store.select('counter').subscribe((data) => {
+    this.store.select(getCounter).subscribe((data) => {
       console.log(data);
+      this.counterVal = data
     })
   }
   onIncrement() {
-    console.log("Increment ");
     this.store.dispatch(increment())
   }
   onDecrement() {
