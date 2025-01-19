@@ -1,0 +1,22 @@
+<p>display-counter works!</p>
+
+<div class="flex gap-4"></div>
+
+<button mat-raised-button color="primary" (click)="onIncrement()">
+  Increment
+</button>
+<button mat-raised-button color="accent" (click)="onDecrement()">
+  Decrement
+</button>
+<button mat-raised-button color="warn" (click)="onReset()">Reset</button>
+
+<form>
+  <mat-form-field class="example-full-width">
+    <mat-label>Enter a value to increment</mat-label>
+    <input matInput placeholder="2" type="number" #cnt />
+  </mat-form-field>
+  <button mat-raised-button color="warn" (click)="onCustomInc(cnt.value)">
+    Add
+  </button>
+</form>
+<h2>Counter {{ counterVal }}</h2>
